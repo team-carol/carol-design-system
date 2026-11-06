@@ -287,7 +287,7 @@ function ButtonPage() {
         <Button>디스코드에 추가</Button>
         <Button variant="secondary">명령어 보기</Button>
         <Button size="sm">저장</Button>
-        <Button href="#/button" variant="secondary" size="lg">
+        <Button href="#button" variant="secondary" size="lg">
           링크 버튼
         </Button>
         <Button disabled>비활성</Button>
@@ -496,8 +496,8 @@ function ShellPage() {
 </Footer>`}
       >
         <div style={{ border: "1px solid var(--crl-border)", borderRadius: 12, overflow: "hidden" }}>
-          <TopBar brand={<Brand name="캐롤봇" href="#/shell" />} style={{ position: "static" }}>
-            <TopBarLink href="#/shell" active>
+          <TopBar brand={<Brand name="캐롤봇" href="#shell" />} style={{ position: "static" }}>
+            <TopBarLink href="#shell" active>
               명령어
             </TopBarLink>
             <Button size="sm">디스코드에 추가</Button>
@@ -506,8 +506,8 @@ function ShellPage() {
           <Footer>
             <span>team carol</span>
             <span className="crl-topbar__spacer" />
-            <a href="#/shell">이용약관</a>
-            <a href="#/shell">개인정보처리방침</a>
+            <a href="#shell">이용약관</a>
+            <a href="#shell">개인정보처리방침</a>
           </Footer>
         </div>
       </Example>

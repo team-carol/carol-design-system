@@ -29,7 +29,7 @@ export function App() {
 
   return (
     <>
-      <TopBar brand={<Brand name="Carol Design System" href="#/overview" />}>
+      <TopBar brand={<Brand name="Carol Design System" href="#overview" />}>
         <TopBarLink href={GITHUB} target="_blank" rel="noopener">
           GitHub
         </TopBarLink>
@@ -39,7 +39,7 @@ export function App() {
           {NAV.map((group) => (
             <Group key={group.label} label={group.label}>
               {group.slugs.map((s) => (
-                <a key={s} href={`#/${s}`} aria-current={s === slug ? "page" : undefined}>
+                <a key={s} href={`#${s}`} aria-current={s === slug ? "page" : undefined}>
                   {PAGES[s].title}
                 </a>
               ))}
