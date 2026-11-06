@@ -417,4 +417,4 @@ npm run docs        # 빌드 후 문서 사이트 개발 서버
 
 `.github/workflows/release.yml` 이 빌드·테스트 후 GitHub Packages 에 배포합니다.
 
-문서 사이트는 따로, **main 에 푸시할 때마다** `.github/workflows/docs.yml` 이 GitHub Pages 에 올립니다.
+문서 사이트는 배포하지 않고 로컬에서 봅니다 (`npm run docs`). CI 는 문서 사이트가 빌드되는지만 확인합니다.

@@ -1,4 +1,4 @@
-# v* 태그를 푸시하면 세 패키지를 배포한다. 문서 사이트는 docs.yml 이 main 푸시마다 올린다.
+# v* 태그를 푸시하면 세 패키지를 배포한다.
 #   1) packages/*/package.json 의 version 을 같이 올린다 (서로 의존하는 버전도)
 #   2) git tag v0.2.0 && git push origin v0.2.0
 name: Release
