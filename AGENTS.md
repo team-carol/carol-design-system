@@ -5,7 +5,7 @@ team carol 세 앱(carol-web · carol · carol-ops)의 공용 디자인 시스�
 ## 규칙
 
 - **기준은 carol-web.** 토큰 값이 앱마다 다르면 carol-web `app/globals.css` 값을 따른다. 기준 값을 바꾸면 `packages/tokens/test/tokens.test.mjs` 의 표도 고친다.
-- **둘 이상의 앱이 쓰는 것만 올린다.** 한 앱 전용 UI 는 넣지 않는다 (docs/MIGRATION.md 끝의 목록 참고).
+- **둘 이상의 앱이 쓰는 것만 올린다.** 한 앱 전용 UI 는 넣지 않는다.
 - 게임 고유 색은 `packages/tokens/src/game.ts` 에만 둔다. 브랜드 색과 섞지 않는다.
 - 값의 원본은 `packages/tokens/src/*.ts` 하나다. `dist/` 의 CSS·Tailwind 파일은 생성물이라 직접 고치지 않는다.
 - CSS 는 토큰 변수(`var(--crl-*)`)만 쓴다. hex 를 박지 않는다 (예외: `.crl-brand__mark` 의 흰 바탕).
