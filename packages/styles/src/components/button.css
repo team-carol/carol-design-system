@@ -1,0 +1,57 @@
+/* Button — primary(코랄) · secondary, 크기 sm · md · lg
+   carol-web cta.ts(primaryCta/secondaryCta), carol theme.ts(.btn), carol-ops(.btn) 공통 */
+.crl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: var(--crl-radius-button);
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: var(--crl-weight-medium);
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color var(--crl-motion-fast),
+    box-shadow var(--crl-motion-fast),
+    color var(--crl-motion-fast);
+}
+.crl-btn:disabled,
+.crl-btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.crl-btn--sm {
+  padding: 7px 14px;
+  font-size: 14px;
+}
+.crl-btn--lg {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+.crl-btn--primary,
+.crl-btn--primary:hover {
+  color: var(--crl-accent-ink);
+}
+.crl-btn--primary {
+  background: var(--crl-accent);
+  box-shadow: 0 0 0 1px var(--crl-accent);
+}
+.crl-btn--primary:hover:not(:disabled) {
+  background: var(--crl-accent-hover);
+}
+
+.crl-btn--secondary {
+  background: var(--crl-surface-2);
+  color: var(--crl-ink-2);
+  box-shadow: 0 0 0 1px var(--crl-border-strong);
+}
+.crl-btn--secondary:hover:not(:disabled) {
+  background: var(--crl-surface-hover);
+  color: var(--crl-ink);
+}

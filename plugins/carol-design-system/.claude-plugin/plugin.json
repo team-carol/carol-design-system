@@ -1,0 +1,11 @@
+{
+  "name": "carol-design-system",
+  "version": "0.1.0",
+  "description": "team carol 디자인 시스템(@team-carol/tokens · styles · react) 사용 규칙을 에이전트에게 알려 주는 스킬",
+  "author": {
+    "name": "team carol"
+  },
+  "homepage": "https://github.com/team-carol/carol-design-system",
+  "repository": "https://github.com/team-carol/carol-design-system",
+  "license": "MIT"
+}

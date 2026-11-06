@@ -1,0 +1,50 @@
+{
+  "name": "@team-carol/tokens",
+  "version": "0.1.0",
+  "description": "캐롤봇 디자인 토큰 — 색·타이포·간격·게임 색. JS/TS, CSS 변수, Tailwind v4 테마로 배포한다.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/team-carol/carol-design-system.git",
+    "directory": "packages/tokens"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "game": [
+        "./dist/game.d.ts"
+      ]
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./game": {
+      "types": "./dist/game.d.ts",
+      "import": "./dist/game.js",
+      "require": "./dist/game.cjs"
+    },
+    "./tokens.css": "./dist/tokens.css",
+    "./tailwind.css": "./dist/tailwind.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "tsup src/index.ts src/game.ts --format esm,cjs --dts --clean && node scripts/build-css.mjs",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "node --test \"test/**/*.test.mjs\""
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}

@@ -1,0 +1,95 @@
+/* 리셋 + 문서 기본값. 모든 컴포넌트 CSS 보다 먼저 온다. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--crl-canvas);
+  color: var(--crl-ink-soft);
+  font-family: var(--crl-font-sans);
+  font-size: var(--crl-type-body-size);
+  line-height: var(--crl-type-body-line-height);
+  -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--crl-accent-soft);
+  text-decoration: none;
+  transition: color var(--crl-motion-fast);
+}
+a:hover {
+  color: var(--crl-accent);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+strong,
+b {
+  color: var(--crl-ink-2);
+  font-weight: var(--crl-weight-semibold);
+}
+
+:focus-visible {
+  outline: 2px solid var(--crl-focus);
+  outline-offset: 2px;
+}
+
+code,
+kbd,
+pre {
+  font-family: var(--crl-font-mono);
+}
+:not(pre) > code {
+  font-size: 0.85em;
+  background: var(--crl-surface-2);
+  color: var(--crl-ink-2);
+  padding: 2px 6px;
+  border-radius: var(--crl-radius-inline);
+}
+pre {
+  background: var(--crl-canvas);
+  border: 1px solid var(--crl-border);
+  border-radius: var(--crl-radius-small);
+  padding: 12px;
+  font-size: 12px;
+  color: var(--crl-ink-soft);
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,67 @@
+/* 레이아웃 · 타이포 유틸리티 (carol-web 랜딩 기준) */
+.crl-container {
+  width: 100%;
+  max-width: var(--crl-container);
+  margin-inline: auto;
+  padding-inline: var(--crl-gutter);
+}
+.crl-container--narrow {
+  max-width: var(--crl-container-narrow);
+}
+.crl-section {
+  padding-block: var(--crl-section-y);
+}
+
+.crl-display,
+.crl-heading-1,
+.crl-heading-2,
+.crl-heading-3,
+.crl-heading-4 {
+  color: var(--crl-ink);
+  font-weight: var(--crl-weight-medium);
+}
+.crl-display {
+  font-size: var(--crl-type-display-size);
+  line-height: var(--crl-type-display-line-height);
+  letter-spacing: -0.01em;
+}
+.crl-heading-1 {
+  font-size: var(--crl-type-heading-1-size);
+  line-height: var(--crl-type-heading-1-line-height);
+  letter-spacing: -0.01em;
+}
+.crl-heading-2 {
+  font-size: var(--crl-type-heading-2-size);
+  line-height: var(--crl-type-heading-2-line-height);
+  letter-spacing: -0.02em;
+}
+.crl-heading-3 {
+  font-size: var(--crl-type-heading-3-size);
+  line-height: var(--crl-type-heading-3-line-height);
+}
+.crl-heading-4 {
+  font-size: var(--crl-type-heading-4-size);
+  line-height: var(--crl-type-heading-4-line-height);
+}
+.crl-body-lg {
+  font-size: var(--crl-type-body-lg-size);
+  line-height: var(--crl-type-body-lg-line-height);
+  color: var(--crl-muted);
+}
+.crl-body-sm {
+  font-size: var(--crl-type-body-sm-size);
+  line-height: var(--crl-type-body-sm-line-height);
+  color: var(--crl-muted);
+}
+.crl-caption {
+  font-size: var(--crl-type-caption-size);
+  line-height: var(--crl-type-caption-line-height);
+  color: var(--crl-dim);
+}
+/* 제목 위 작은 머리말 */
+.crl-eyebrow {
+  font-size: var(--crl-type-caption-size);
+  font-weight: var(--crl-weight-medium);
+  color: var(--crl-dim);
+  margin-bottom: 10px;
+}

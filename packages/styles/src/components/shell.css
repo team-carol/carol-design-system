@@ -1,0 +1,84 @@
+/* TopBar — 상단 고정 바 (반투명 + blur). --static 은 스크롤과 함께 흐르는 ops 헤더 */
+.crl-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--crl-border);
+  background: color-mix(in srgb, var(--crl-canvas) 90%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+.crl-topbar--static {
+  position: static;
+  background: var(--crl-canvas-alt);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.crl-topbar__inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: var(--crl-container);
+  min-height: 58px;
+  margin-inline: auto;
+  padding: 12px var(--crl-gutter);
+}
+.crl-topbar__spacer {
+  flex: 1;
+}
+.crl-topbar__link {
+  font-size: 15px;
+  color: var(--crl-muted);
+  white-space: nowrap;
+}
+.crl-topbar__link:hover {
+  color: var(--crl-ink);
+}
+.crl-topbar__link[aria-current="page"],
+.crl-topbar__link.is-active {
+  color: var(--crl-accent-soft);
+  font-weight: var(--crl-weight-medium);
+}
+
+/* Brand — 아바타 + 이름 */
+.crl-brand,
+.crl-brand:hover {
+  color: var(--crl-ink);
+}
+.crl-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: var(--crl-weight-medium);
+}
+.crl-brand__mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px var(--crl-surface-2);
+}
+
+/* Footer */
+.crl-footer {
+  border-top: 1px solid var(--crl-surface-2);
+}
+.crl-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 20px;
+  max-width: var(--crl-container);
+  margin-inline: auto;
+  padding: 28px var(--crl-gutter) 36px;
+  font-size: 13px;
+  color: var(--crl-faint);
+}
+.crl-footer__inner a {
+  color: var(--crl-dim);
+}
+.crl-footer__inner a:hover {
+  color: var(--crl-ink);
+}

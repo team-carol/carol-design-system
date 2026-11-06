@@ -1,0 +1,60 @@
+/* Field — 라벨 + 입력 + 도움말/오류 */
+.crl-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.crl-label {
+  font-size: 13px;
+  font-weight: var(--crl-weight-medium);
+  color: var(--crl-muted);
+}
+.crl-input {
+  width: 100%;
+  background: var(--crl-canvas-alt);
+  border: 1px solid var(--crl-border-strong);
+  border-radius: var(--crl-radius-control);
+  padding: 9px 12px;
+  color: var(--crl-ink);
+  font-size: 14px;
+  transition: border-color var(--crl-motion-fast);
+}
+.crl-input::placeholder {
+  color: var(--crl-faint);
+}
+.crl-input:focus {
+  outline: 2px solid color-mix(in srgb, var(--crl-accent) 20%, transparent);
+  outline-offset: 0;
+  border-color: var(--crl-accent);
+}
+.crl-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.crl-input[aria-invalid="true"] {
+  border-color: var(--crl-danger-border);
+}
+textarea.crl-input {
+  min-height: 96px;
+  resize: vertical;
+  line-height: 1.5;
+}
+select.crl-input {
+  appearance: none;
+  padding-right: 32px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--crl-muted) 50%),
+    linear-gradient(135deg, var(--crl-muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 17px) 50%,
+    calc(100% - 12px) 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+.crl-helper {
+  font-size: 12px;
+  color: var(--crl-dim);
+}
+.crl-helper--error {
+  color: var(--crl-danger);
+}

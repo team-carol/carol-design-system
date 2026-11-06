@@ -1,0 +1,20 @@
+/* Card — surface 면 + 1px 테두리 + 16px 모서리 (web·carol·ops 공통) */
+.crl-card {
+  background: var(--crl-surface);
+  border: 1px solid var(--crl-border);
+  border-radius: var(--crl-radius-card);
+  padding: clamp(20px, 3vw, 28px);
+  color: var(--crl-ink-soft);
+}
+.crl-card__title {
+  color: var(--crl-ink);
+  font-size: var(--crl-type-heading-4-size);
+  line-height: var(--crl-type-heading-4-line-height);
+  font-weight: var(--crl-weight-medium);
+}
+.crl-card__body {
+  margin-top: 12px;
+  font-size: var(--crl-type-body-sm-size);
+  line-height: var(--crl-type-body-sm-line-height);
+  color: var(--crl-muted);
+}

@@ -1,0 +1,38 @@
+/* Stat — 라벨 + 큰 수치. --hero 는 랜딩 Stats(큰 코랄 숫자 위, 라벨 아래) */
+.crl-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 24px;
+}
+.crl-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.crl-stat__label {
+  font-size: 12px;
+  font-weight: var(--crl-weight-medium);
+  color: var(--crl-dim);
+}
+.crl-stat__value {
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: var(--crl-weight-medium);
+  color: var(--crl-ink);
+  overflow-wrap: anywhere;
+}
+.crl-stat--hero {
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+.crl-stat--hero .crl-stat__value {
+  font-size: clamp(34px, 4vw, 46px);
+  line-height: 1.1;
+  color: var(--crl-accent-soft);
+}
+.crl-stat--hero .crl-stat__label {
+  font-size: 14px;
+  font-weight: var(--crl-weight-regular);
+}

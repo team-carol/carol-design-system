@@ -1,0 +1,30 @@
+# v* 태그를 푸시하면 세 패키지를 배포한다. 문서 사이트는 docs.yml 이 main 푸시마다 올린다.
+#   1) packages/*/package.json 의 version 을 같이 올린다 (서로 의존하는 버전도)
+#   2) git tag v0.2.0 && git push origin v0.2.0
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          registry-url: https://npm.pkg.github.com
+          scope: "@team-carol"
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - run: npm publish -w @team-carol/tokens -w @team-carol/styles -w @team-carol/react
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

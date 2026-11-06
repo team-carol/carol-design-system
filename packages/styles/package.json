@@ -1,0 +1,44 @@
+{
+  "name": "@team-carol/styles",
+  "version": "0.1.0",
+  "description": "캐롤봇 컴포넌트 CSS (crl-* 클래스). 프레임워크 없이 쓰거나 @team-carol/react 와 함께 쓴다.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/team-carol/carol-design-system.git",
+    "directory": "packages/styles"
+  },
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./carol.css": "./dist/carol.css",
+    "./components.css": "./dist/components.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "@team-carol/tokens": "0.1.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
