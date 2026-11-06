@@ -6,7 +6,7 @@ team carol 의 세 앱 — **carol-web**(랜딩), **carol**(디스코드 봇 · 
 
 - 기준 값: **carol-web 랜딩** (`app/globals.css` 의 `@theme`)
 - 담는 범위: **둘 이상의 앱이 함께 쓰는 것만** — 한 앱에서만 쓰는 UI 는 그 앱에 둡니다
-- 문서 사이트: `npm run docs` → <http://localhost:5173> (Elements · Components 카탈로그)
+- 문서 사이트: <https://team-carol.github.io/carol-design-system/> (로컬은 `npm run docs` → <http://localhost:5173>)
 
 ## 목차
 
@@ -417,4 +417,4 @@ npm run docs        # 빌드 후 문서 사이트 개발 서버
 
 `.github/workflows/release.yml` 이 빌드·테스트 후 GitHub Packages 에 배포합니다.
 
-문서 사이트는 배포하지 않고 로컬에서 봅니다 (`npm run docs`). CI 는 문서 사이트가 빌드되는지만 확인합니다.
+문서 사이트는 **main 에 푸시할 때마다** `.github/workflows/docs.yml` 이 GitHub Pages 에 올립니다 → <https://team-carol.github.io/carol-design-system/>
