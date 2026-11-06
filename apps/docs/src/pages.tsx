@@ -81,7 +81,7 @@ function Overview() {
     <>
       <Header
         title="Carol Design System"
-        lead="carol-web · carol · carol-ops 가 함께 쓰는 색, 타이포, 컴포넌트. 기준 값은 carol-web 랜딩이다."
+        lead="team carol 의 색, 타이포그래피, 컴포넌트. 어두운 캔버스 위 코랄 강조색 하나로 이루어진 시스템이다."
       />
       <div className="docs-cards">
         {[
@@ -98,19 +98,21 @@ function Overview() {
         ))}
       </div>
 
-      <h2>어느 앱이 무엇을 쓰나</h2>
+      <h2>환경별로 쓰는 것</h2>
       <Table
-        head={["앱", "스택", "쓰는 패키지"]}
+        head={["환경", "가져오는 것"]}
         rows={[
-          ["carol-web", "Next.js + Tailwind v4", <code>tokens/tailwind.css</code>],
-          ["carol", "Express 서버 렌더 HTML + satori PNG + Discord", <><code>tokens</code> (JS 값) · <code>styles</code> (CSS 문자열)</>],
-          ["carol-ops", "Vite + React", <><code>react</code> + <code>styles/carol.css</code></>],
+          ["Tailwind v4", <><code>@team-carol/tokens/tailwind.css</code> (+ <code>@team-carol/styles/components.css</code>)</>],
+          ["일반 CSS", <><code>@team-carol/styles/carol.css</code> 또는 <code>@team-carol/tokens/tokens.css</code></>],
+          ["React", <><code>@team-carol/react</code> + <code>@team-carol/styles/carol.css</code></>],
+          ["서버에서 만드는 HTML", <><code>carolCss</code> 문자열 (<code>@team-carol/styles</code>) + <code>crl-*</code> 클래스</>],
+          ["Canvas · 이미지 렌더 · Discord", <><code>color</code>, <code>toInt()</code> (<code>@team-carol/tokens</code>)</>],
         ]}
       />
 
       <h2>설치</h2>
       <p>
-        GitHub Packages 에 배포된다. 쓰는 저장소 루트에 <code>.npmrc</code> 를 두고 설치한다. 자세한 건 저장소 README 를 본다.
+        GitHub Packages 에 배포된다. 프로젝트 루트에 <code>.npmrc</code> 를 두고 필요한 패키지만 설치한다. 토큰 설정과 환경별 예시는 저장소 README 에 있다.
       </p>
       <Example
         block
@@ -119,14 +121,17 @@ function Overview() {
 
 npm install @team-carol/tokens @team-carol/styles @team-carol/react`}
       >
-        <p className="crl-caption">설치 후 각 앱의 연결 방법은 README 의 “프로젝트별 적용” 을 따른다.</p>
+        <p className="crl-caption">
+          <a href="https://github.com/team-carol/carol-design-system#readme" target="_blank" rel="noopener">
+            README 의 설치 · 사용법 보기
+          </a>
+        </p>
       </Example>
 
       <h2>원칙</h2>
       <ul>
-        <li>색은 직접 박지 않는다. 토큰(또는 --crl-* 변수, Tailwind 클래스)만 쓴다.</li>
-        <li>값이 저장소마다 다르면 carol-web 이 기준이다.</li>
-        <li>둘 이상의 저장소가 쓰는 것만 여기 올린다. 한 앱에서만 쓰는 건 그 앱에 둔다.</li>
+        <li>색은 직접 쓰지 않는다. 토큰(또는 --crl-* 변수, Tailwind 클래스)만 쓴다.</li>
+        <li>여러 프로젝트가 함께 쓰는 것만 여기 둔다. 한 곳에서만 쓰는 UI 는 그 프로젝트에 둔다.</li>
         <li>게임 고유 색(난이도·랭크)은 브랜드 색과 섞지 않고 <code>@team-carol/tokens/game</code> 에 둔다.</li>
       </ul>
     </>
@@ -402,7 +407,7 @@ function TabsPage() {
   const [b, setB] = useState("aliases");
   return (
     <>
-      <Header title="Tabs" lead="underline 은 한 화면 안 전환(ops 대시보드), contained 는 관리 페이지 묶음." />
+      <Header title="Tabs" lead="underline 은 한 화면 안에서 내용을 바꿀 때, contained 는 여러 페이지를 묶은 메뉴로 쓴다." />
       <Example
         block
         code={`<Tabs
@@ -418,7 +423,7 @@ function TabsPage() {
 </nav>`}
       >
         <Tabs
-          aria-label="ops"
+          aria-label="대시보드"
           value={a}
           onChange={setA}
           items={[
@@ -447,7 +452,7 @@ function TabsPage() {
 function StatPage() {
   return (
     <>
-      <Header title="Stat" lead="라벨 + 큰 수치. hero 는 랜딩 Stats 처럼 코랄 숫자를 가운데에 둔다." />
+      <Header title="Stat" lead="라벨 + 큰 수치. hero 는 큰 코랄 숫자를 가운데에 둔다." />
       <Example
         block
         code={`<StatGrid>
@@ -479,7 +484,7 @@ function StatPage() {
 function ShellPage() {
   return (
     <>
-      <Header title="TopBar & Footer" lead="세 앱이 같은 상단바를 쓴다. 아바타 이미지는 각 앱 public 경로를 markSrc 로 넘긴다." />
+      <Header title="TopBar & Footer" lead="모든 페이지가 같은 상단바와 푸터를 쓴다. 브랜드 이미지는 쓰는 쪽의 경로를 markSrc 로 넘긴다." />
       <Example
         block
         code={`<TopBar brand={<Brand name="캐롤봇" markSrc="/carolbot-avatar.png" href="/" />}>
@@ -487,7 +492,7 @@ function ShellPage() {
   <Button size="sm">디스코드에 추가</Button>
 </TopBar>
 
-{/* ops: 스크롤과 함께 흐르는 헤더 */}
+{/* 스크롤과 함께 흐르는 헤더 */}
 <TopBar variant="static" brand={<Brand name="캐롤봇 운영" />} />
 
 <Footer>
