@@ -1,12 +1,11 @@
-// 캐롤봇 브랜드 색. 기준은 carol-web(app/globals.css @theme) 이고,
-// carol(src/brand.ts · src/web/theme.ts)과 carol-ops(web/src/index.css)가 복제해 쓰던 값을 여기로 모았다.
-// 앱은 색을 직접 박지 말고 이 토큰(또는 생성된 CSS 변수 --crl-*)만 쓴다.
+// 캐롤봇 브랜드 색. 이 디자인 시스템의 모든 값의 원본이다.
+// 프로젝트는 색을 직접 박지 말고 이 토큰(또는 생성된 CSS 변수 --crl-*)만 쓴다.
 
 /** 배경·면. 숫자가 클수록 위로 떠 있는 층이다. */
 export const background = {
   /** 페이지 바탕 */
   canvas: "#1a1a1c",
-  /** 바탕 위 띠 섹션, 입력창 바탕, ops 헤더 */
+  /** 바탕 위 띠 섹션, 입력창 바탕, 흐르는 헤더 */
   canvasAlt: "#211f24",
   /** 카드·패널 */
   surface: "#242427",
@@ -48,8 +47,7 @@ export const accent = {
 } as const;
 
 /**
- * 상태색. carol(--ok/--err/--warn)과 carol-ops(--success/--danger)가 각자 쓰던 것을 하나로 합쳤다.
- * carol-web 에는 상태색이 없어서, 배경·테두리 세트까지 갖춘 carol-ops 값을 기준으로 삼았다.
+ * 상태색.
  * fg 는 글자·아이콘, bg/border 는 배지·상자.
  */
 export const status = {

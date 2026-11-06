@@ -19,15 +19,15 @@ export const fontWeight = {
 } as const;
 
 /**
- * 타입 스케일. carol-web 랜딩에서 실제로 쓰는 크기를 역할별로 묶었다.
- * 제목은 font-weight 500(medium)이 기본이다 — 랜딩 톤이 굵지 않다.
+ * 타입 스케일. 역할별 글자 크기.
+ * 제목은 font-weight 500(medium)이 기본이다. 굵게 하지 않는 것이 이 시스템의 톤이다.
  */
 export const typeScale = {
   /** 히어로 헤드라인 */
   display: { fontSize: "clamp(40px, 5vw, 64px)", lineHeight: 1.15, fontWeight: 500, letterSpacing: "-0.01em" },
   /** 섹션 제목 */
   heading1: { fontSize: "clamp(30px, 3.6vw, 46px)", lineHeight: 1.2, fontWeight: 500, letterSpacing: "-0.01em" },
-  /** 페이지 제목(관리/운영 화면) */
+  /** 페이지 제목(앱 화면) */
   heading2: { fontSize: "clamp(28px, 3vw, 38px)", lineHeight: 1.2, fontWeight: 500, letterSpacing: "-0.02em" },
   /** 그룹 제목 */
   heading3: { fontSize: "25px", lineHeight: 1.2, fontWeight: 500, letterSpacing: "0" },

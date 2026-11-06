@@ -1,4 +1,4 @@
-/* Card — surface 면 + 1px 테두리 + 16px 모서리 (web·carol·ops 공통) */
+/* Card — surface 면 + 1px 테두리 + 16px 모서리 */
 .crl-card {
   background: var(--crl-surface);
   border: 1px solid var(--crl-border);

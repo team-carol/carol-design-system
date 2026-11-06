@@ -1,6 +1,6 @@
 // dist/index.js(토큰)에서 CSS 산출물 두 개를 만든다.
 //   dist/tokens.css   — :root { --crl-* }  어떤 프레임워크에서도 쓰는 CSS 변수
-//   dist/tailwind.css — Tailwind v4 @theme. carol-web 처럼 Tailwind 를 쓰는 앱용
+//   dist/tailwind.css — Tailwind v4 @theme. Tailwind 를 쓰는 프로젝트용
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";

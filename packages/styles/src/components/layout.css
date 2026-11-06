@@ -1,4 +1,4 @@
-/* 레이아웃 · 타이포 유틸리티 (carol-web 랜딩 기준) */
+/* 레이아웃 · 타이포 유틸리티 */
 .crl-container {
   width: 100%;
   max-width: var(--crl-container);

@@ -1,6 +1,5 @@
 // 게임 고유 색(난이도·랭크·클리어 마크·칭호·서클). 브랜드 팔레트와 섞지 않는다.
-// 원본: team-carol/carol src/games.ts, src/bot/utils/cardKit.ts, src/bot/utils/circleColors.ts
-// 엔트리 포인트를 분리(@team-carol/tokens/game)해 브랜드 토큰만 쓰는 앱은 이 값을 번들하지 않는다.
+// 엔트리 포인트를 분리(@team-carol/tokens/game)해 브랜드 토큰만 쓰는 프로젝트는 이 값을 번들하지 않는다.
 
 export type GameId = "maimai" | "chunithm" | "sdvx" | "arcaea";
 

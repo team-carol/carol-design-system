@@ -1,4 +1,4 @@
-/* Tag — 작은 상태 배지 (carol 관리 페이지 .badge, carol-ops .tag 공통) */
+/* Tag — 작은 상태 배지 */
 .crl-tag {
   display: inline-flex;
   align-items: center;
@@ -25,7 +25,7 @@
   color: var(--crl-danger);
 }
 
-/* Chip — 큰 둥근 표시용 라벨 (carol-web 히어로 명령어 칩, carol PNG 카드 pill) */
+/* Chip — 큰 둥근 표시용 라벨 (명령어 칩 등) */
 .crl-chip {
   display: inline-flex;
   align-items: center;

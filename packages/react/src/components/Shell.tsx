@@ -4,7 +4,7 @@ import { cx } from "../cx";
 export interface TopBarProps extends HTMLAttributes<HTMLElement> {
   /** 왼쪽 브랜드 영역 (보통 <Brand />) */
   brand: ReactNode;
-  /** sticky: 반투명 고정 바(기본) · static: 흐르는 헤더(ops) */
+  /** sticky: 반투명 고정 바(기본) · static: 스크롤과 함께 흐르는 헤더 */
   variant?: "sticky" | "static";
   children?: ReactNode;
 }

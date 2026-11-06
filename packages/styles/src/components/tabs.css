@@ -1,4 +1,4 @@
-/* Tabs — 기본은 밑줄형(ops 대시보드), --contained 는 묶음형(carol 관리 페이지) */
+/* Tabs — 기본은 밑줄형(한 화면 안 전환), --contained 는 묶음형(페이지 메뉴) */
 .crl-tabs {
   display: flex;
   gap: 6px;

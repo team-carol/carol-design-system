@@ -1,7 +1,7 @@
 // CSS 소스를 합쳐 배포 산출물을 만든다.
-//   dist/carol.css      — 토큰 변수 + 리셋(base) + 컴포넌트. 일반 앱(carol-ops, carol 웹 페이지)용
+//   dist/carol.css      — 토큰 변수 + 리셋(base) + 컴포넌트. 일반 CSS·React 프로젝트용
 //   dist/components.css — 토큰 변수 + 컴포넌트(리셋 없음). Tailwind 처럼 자체 리셋이 있는 앱용
-//   dist/index.{js,cjs,d.ts} — 위 CSS 를 문자열로 export. 서버에서 HTML 을 직접 만드는 곳(carol)용
+//   dist/index.{js,cjs,d.ts} — 위 CSS 를 문자열로 export. 서버에서 HTML 을 직접 만드는 곳용
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { dirname, join } from "node:path";

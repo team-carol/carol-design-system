@@ -1,24 +1,24 @@
 ---
 name: carol-design-system
-description: team carol 디자인 시스템(@team-carol/tokens · styles · react) 사용 규칙. carol-web, carol(봇 웹 페이지·PNG 카드·Discord 임베드), carol-ops 에서 색·글꼴·버튼·카드·탭·입력창·상단바 같은 UI 를 만들거나 고칠 때, 색 값(hex)을 쓰려 할 때, 예전 CSS 변수(--border-soft, --text-lo, --ok 등)를 만났을 때 먼저 읽는다.
+description: team carol 디자인 시스템(@team-carol/tokens · styles · react) 사용 규칙. 이 디자인 시스템을 쓰는 프로젝트에서 색·글꼴·버튼·카드·탭·입력창·상단바 같은 UI 를 만들거나 고칠 때, 색 값(hex)을 쓰려 할 때, 새 프로젝트에 디자인 시스템을 붙일 때 먼저 읽는다.
 ---
 
 # Carol Design System
 
-team carol 의 세 앱(carol-web, carol, carol-ops)이 함께 쓰는 디자인 시스템이다.
-원본 저장소: https://github.com/team-carol/carol-design-system · 기준 값은 **carol-web 랜딩**이다.
+team carol 의 색, 타이포그래피, 컴포넌트를 담은 디자인 시스템이다. 어두운 캔버스 위에 코랄 강조색 하나를 쓴다.
+저장소: https://github.com/team-carol/carol-design-system · 문서: https://team-carol.github.io/carol-design-system/
 
 ## 반드시 지킬 것
 
 1. **색을 직접 쓰지 않는다.** `#ff9294`, `#33333a` 같은 hex 를 새로 쓰지 말고 토큰을 쓴다.
    - JS/TS: `import { color } from "@team-carol/tokens"` → `color.accent`
    - CSS: `var(--crl-accent)`
-   - Tailwind(carol-web): `bg-accent`, `text-ink-soft`, `border-border`
-   - Discord 임베드: `toInt(color.accent)` → `0xff9294`
+   - Tailwind: `bg-accent`, `text-ink-soft`, `border-border`
+   - 숫자 색(Discord 임베드 등): `toInt(color.accent)` → `0xff9294`
 2. **게임 고유 색**(난이도·랭크·FC/AP·칭호·서클)은 `@team-carol/tokens/game` 에서 가져온다. 브랜드 색과 섞지 않는다.
 3. **이미 있는 컴포넌트를 먼저 쓴다.** 아래 목록에 있으면 새로 만들지 않는다.
-4. 디자인 시스템에 없는 UI 가 필요하면 우선 앱 안에 만든다. **둘 이상의 앱이 쓰게 되면** carol-design-system 에 올리자고 제안한다.
-5. 토큰 값이 맞지 않아 보이면 앱에서 덮어쓰지 말고 carol-design-system 저장소에서 고친다.
+4. 디자인 시스템에 없는 UI 가 필요하면 우선 지금 프로젝트 안에 만든다. **다른 프로젝트도 쓰게 되면** carol-design-system 에 올리자고 제안한다.
+5. 토큰 값이 맞지 않아 보이면 프로젝트에서 덮어쓰지 말고 carol-design-system 저장소에서 고친다.
 
 ## 색 토큰
 
@@ -46,9 +46,9 @@ team carol 의 세 앱(carol-web, carol, carol-ops)이 함께 쓰는 디자인 �
 | warning / warningBg / warningBorder | --crl-warning … | warning … | #f5c97a / #41382a / #6e5c3a | 경고 |
 | focus | --crl-focus | focus | #3898ec | 키보드 포커스 링 |
 
-모서리: `radius.inline 6 · small 8 · control 10 · button 12 · card 16 · hero 32 · pill 999` (Tailwind `rounded-card` 등. 기본 `rounded-xl` 과 다르다).
-레이아웃: `--crl-container 1200px`, `--crl-container-narrow 880px`, `--crl-gutter clamp(20px,4vw,40px)` (Tailwind `max-w-page`, `max-w-narrow`, `px-gutter`, `py-section`).
-글꼴: Pretendard → Noto Sans JP → 시스템. 코드는 JetBrains Mono. 제목은 굵기 500.
+- 모서리: `radius.inline 6 · small 8 · control 10 · button 12 · card 16 · hero 32 · pill 999` (Tailwind `rounded-card` 등. Tailwind 기본 `rounded-xl` 과는 다르다)
+- 레이아웃: `--crl-container 1200px`, `--crl-container-narrow 880px`, `--crl-gutter clamp(20px,4vw,40px)`, `--crl-section-y` (Tailwind `max-w-page`, `max-w-narrow`, `px-gutter`, `py-section`)
+- 글꼴: Pretendard → Noto Sans JP → 시스템. 코드는 JetBrains Mono. 웹 폰트 주소는 `fontUrls`. 제목 굵기는 500
 
 ## 컴포넌트
 
@@ -66,25 +66,22 @@ team carol 의 세 앱(carol-web, carol, carol-ops)이 함께 쓰는 디자인 �
 | 타이포 | — | `crl-display` `crl-heading-1..4` `crl-body-lg` `crl-body-sm` `crl-caption` `crl-eyebrow` |
 | 레이아웃 | — | `crl-container [--narrow]` `crl-section` |
 
-## 앱별 사용법
+## 환경별 사용법
 
-- **carol-web (Next.js + Tailwind v4)** — `globals.css` 에 `@import "tailwindcss"; @import "@team-carol/tokens/tailwind.css";`. 클래스는 Tailwind 그대로(`bg-surface rounded-card`). 버튼은 `import { buttonClassName } from "@team-carol/styles"` 로 가져와 `<Link className={buttonClassName({ variant: "secondary" })}>` 처럼 쓴다 (`@team-carol/styles/components.css` 를 함께 불러야 한다). 서버 컴포넌트에서는 `@team-carol/react` 가 아니라 `@team-carol/styles` 에서 import 한다.
-- **carol (서버 렌더 HTML · satori PNG · Discord)** — HTML 은 `<style>${carolCss}</style>` (`import { carolCss } from "@team-carol/styles"`) 뒤에 페이지 CSS 를 붙이고 `crl-*` 클래스를 쓴다. PNG 카드(satori)는 CSS 변수를 못 쓰므로 `color.surface` 처럼 JS 값을 쓴다. 임베드는 `toInt(color.accent)`.
-- **carol-ops (Vite + React)** — `main.tsx` 에 `import "@team-carol/styles/carol.css"` 하고 `@team-carol/react` 컴포넌트를 쓴다.
+- **Tailwind v4** — CSS 진입 파일에 순서대로:
+  ```css
+  @import "tailwindcss";
+  @import "@team-carol/tokens/tailwind.css";
+  @import "@team-carol/styles/components.css" layer(components); /* crl-* 클래스도 쓸 때. 반드시 tailwindcss 뒤 */
+  ```
+  클래스는 `bg-surface rounded-card px-gutter` 처럼 쓴다.
+- **일반 CSS** — `@import "@team-carol/styles/carol.css";` (토큰+리셋+컴포넌트) 또는 변수만 `@team-carol/tokens/tokens.css`. 값은 `var(--crl-*)`.
+- **React** — 진입 파일에서 `import "@team-carol/styles/carol.css"` 한 번, 컴포넌트는 `@team-carol/react`. Next.js 서버 컴포넌트에서 `buttonClassName()` 을 호출할 때는 `"use client"` 가 없는 `@team-carol/styles` 에서 import 한다.
+- **서버에서 만드는 HTML** — `import { carolCss } from "@team-carol/styles"` 를 `<style>` 에 넣고 마크업에 `crl-*` 클래스를 쓴다.
+- **Canvas · 이미지 렌더(satori 등) · Discord** — CSS 변수를 못 쓰므로 `color.surface` 같은 JS 값을 쓴다. 반투명은 `withAlpha(color.canvas, 0.9)`, 숫자 색은 `toInt(...)`.
 
-## 예전 이름 → 새 이름
+## 새 프로젝트에 붙일 때
 
-| 예전 (어디서) | 새 이름 |
-|---|---|
-| `border-soft` (carol-web Tailwind, #33333a) | `border` |
-| `border-2` (carol-web / carol, #3a353d) | `border-strong` |
-| `--border-soft` (**carol-ops**, #3a353d) | `--crl-border-strong` (carol-web 의 border-soft 와 다른 색이었다) |
-| `--divider` (carol-ops) | `--crl-border` |
-| `--hover-2`, `#332e36`, `#38343b` | `--crl-surface-hover` |
-| `--accent-light` (carol-ops) | `--crl-accent-soft` |
-| `--text-hi` / `--text` / `--text-lo` / `--text-dim` (carol-ops) | `--crl-ink` / `--crl-ink-2` / `--crl-muted` / `--crl-dim` |
-| `--ok` / `--err` / `--warn` (carol) | `--crl-success` / `--crl-danger` / `--crl-warning` (값이 조금 다르다) |
-| `BRAND.*` (carol `src/brand.ts`) | `color.*` (`BRAND.border2` → `color.borderStrong`) |
-| `MAI_DIFF_COLOR` / `GAME_DIFF_COLOR` / `GAME_CM_COLOR` (carol `src/games.ts`) | `maimaiDifficulty` / `difficultyColor` / `clearColor` |
-| `primaryCta` / `secondaryCta` (carol-web `components/cta.ts`) | `buttonClassName({ variant })` 또는 `crl-btn crl-btn--*` |
-| 포커스 링 `var(--accent)` (carol-ops) | `--crl-focus` (#3898ec, carol-web 기준) |
+1. 프로젝트 루트 `.npmrc`: `@team-carol:registry=https://npm.pkg.github.com` (설치에는 `read:packages` 토큰이 필요하다 — README 참고)
+2. 필요한 것만 설치: 토큰만 `@team-carol/tokens`, CSS 컴포넌트까지 `@team-carol/styles`, React 면 `@team-carol/react`
+3. 위 "환경별 사용법" 대로 CSS 를 연결하고, `body` 바탕·글자색은 토큰으로 둔다.

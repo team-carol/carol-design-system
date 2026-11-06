@@ -1,4 +1,4 @@
-/* TopBar — 상단 고정 바 (반투명 + blur). --static 은 스크롤과 함께 흐르는 ops 헤더 */
+/* TopBar — 상단 고정 바 (반투명 + blur). --static 은 스크롤과 함께 흐르는 헤더 */
 .crl-topbar {
   position: sticky;
   top: 0;

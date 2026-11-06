@@ -1,5 +1,4 @@
-/* Button — primary(코랄) · secondary, 크기 sm · md · lg
-   carol-web cta.ts(primaryCta/secondaryCta), carol theme.ts(.btn), carol-ops(.btn) 공통 */
+/* Button — primary(코랄) · secondary, 크기 sm · md · lg */
 .crl-btn {
   display: inline-flex;
   align-items: center;

@@ -1,4 +1,4 @@
-/* Stat — 라벨 + 큰 수치. --hero 는 랜딩 Stats(큰 코랄 숫자 위, 라벨 아래) */
+/* Stat — 라벨 + 큰 수치. --hero 는 큰 코랄 숫자 위, 라벨 아래, 가운데 정렬 */
 .crl-stat-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));

@@ -27,7 +27,7 @@ export function cssVarEntries(): [string, string][] {
   return out;
 }
 
-/** ":root{...}" 블록 문자열. 빌드 도구 없이 HTML 을 직접 만드는 곳(carol 웹 페이지)에서 <style> 에 넣는다. */
+/** ":root{...}" 블록 문자열. 빌드 도구 없이 HTML 을 직접 만드는 곳에서 <style> 에 넣는다. */
 export function toCssVars(selector = ":root", pretty = false): string {
   const nl = pretty ? "\n" : "";
   const ind = pretty ? "  " : "";
