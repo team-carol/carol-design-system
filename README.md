@@ -276,12 +276,21 @@ npm run docs        # 빌드 후 문서 사이트 (http://localhost:5173)
 ## 릴리스
 
 1. 세 패키지의 `version` 과 서로 의존하는 버전을 함께 올립니다. 스킬을 바꿨다면 `plugins/carol-design-system/.claude-plugin/plugin.json` 의 `version` 도 올립니다.
-2. 태그를 푸시하면 `.github/workflows/release.yml` 이 빌드·테스트 후 npmjs 에 배포합니다 (provenance 포함).
+2. 태그를 푸시하면 `.github/workflows/release.yml` 이 빌드·테스트 후 npmjs 에 배포합니다.
 
    ```bash
    git tag v0.2.0 && git push origin v0.2.0
    ```
 
-배포에는 저장소 시크릿 `NPM_TOKEN` 이 필요합니다. npmjs → Access Tokens → Granular access token 에서 `@team-carol` 조직 패키지에 Read and write 권한으로 발급합니다.
+배포는 토큰 없이 npm **Trusted Publishing**(GitHub Actions OIDC)으로 합니다. 패키지마다 npmjs → 패키지 Settings → Trusted Publisher 에 다음을 한 번 등록해 둡니다.
+
+| 항목 | 값 |
+|---|---|
+| Publisher | GitHub Actions |
+| Organization or user | `team-carol` |
+| Repository | `carol-design-system` |
+| Workflow filename | `release.yml` |
+
+새 패키지를 추가하면 첫 버전은 로컬에서 `npm login` 후 `npm publish -w <패키지>` 로 한 번 올리고, 그 패키지에도 Trusted Publisher 를 등록합니다.
 
 문서 사이트는 `main` 에 푸시할 때마다 `.github/workflows/docs.yml` 이 GitHub Pages 에 올립니다.

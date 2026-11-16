@@ -45,7 +45,6 @@
     "test": "node --test \"test/**/*.test.mjs\""
   },
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "access": "public"
   }
 }
