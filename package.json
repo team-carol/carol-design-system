@@ -1,16 +1,14 @@
 {
   "name": "carol-design-system",
   "private": true,
-  "description": "team carol 공용 디자인 시스템 (tokens · styles · react)",
+  "description": "team carol 공용 디자인 시스템",
   "license": "MIT",
   "workspaces": [
-    "packages/tokens",
-    "packages/styles",
-    "packages/react",
+    "packages/design-system",
     "apps/docs"
   ],
   "scripts": {
-    "build": "npm run build -w @team-carol/tokens && npm run build -w @team-carol/styles && npm run build -w @team-carol/react",
+    "build": "npm run build -w @team-carol/design-system",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "docs": "npm run build && npm run dev -w carol-docs",

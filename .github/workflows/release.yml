@@ -1,8 +1,8 @@
-# v* 태그를 푸시하면 세 패키지를 npmjs 에 배포한다.
-#   1) packages/*/package.json 의 version 을 같이 올린다 (서로 의존하는 버전도)
+# v* 태그를 푸시하면 @team-carol/design-system 을 npmjs 에 배포한다.
+#   1) packages/design-system/package.json 의 version 을 올린다
 #   2) git tag v0.2.0 && git push origin v0.2.0
 # 토큰 없이 npm Trusted Publishing(OIDC)으로 배포한다.
-# npmjs 의 각 패키지 Settings → Trusted Publisher 에 이 저장소와 release.yml 이 등록돼 있어야 한다.
+# npmjs 의 패키지 Settings → Trusted Publisher 에 이 저장소와 release.yml 이 등록돼 있어야 한다.
 name: Release
 
 on:
@@ -29,4 +29,4 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm test
-      - run: npm publish -w @team-carol/tokens -w @team-carol/styles -w @team-carol/react
+      - run: npm publish -w @team-carol/design-system

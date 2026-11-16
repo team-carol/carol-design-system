@@ -1,0 +1,107 @@
+{
+  "name": "@team-carol/design-system",
+  "version": "0.1.0",
+  "description": "team carol 디자인 시스템 — 토큰(JS · CSS 변수 · Tailwind v4), 컴포넌트 CSS, React 컴포넌트.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/team-carol/carol-design-system.git",
+    "directory": "packages/design-system"
+  },
+  "homepage": "https://team-carol.github.io/carol-design-system/",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "game": [
+        "./dist/game.d.ts"
+      ],
+      "react": [
+        "./dist/react.d.ts"
+      ],
+      "css": [
+        "./dist/css.d.ts"
+      ]
+    }
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./game": {
+      "import": {
+        "types": "./dist/game.d.ts",
+        "default": "./dist/game.js"
+      },
+      "require": {
+        "types": "./dist/game.d.cts",
+        "default": "./dist/game.cjs"
+      }
+    },
+    "./react": {
+      "import": {
+        "types": "./dist/react.d.ts",
+        "default": "./dist/react.js"
+      },
+      "require": {
+        "types": "./dist/react.d.cts",
+        "default": "./dist/react.cjs"
+      }
+    },
+    "./css": {
+      "import": {
+        "types": "./dist/css.d.ts",
+        "default": "./dist/css.js"
+      },
+      "require": {
+        "types": "./dist/css.d.cts",
+        "default": "./dist/css.cjs"
+      }
+    },
+    "./carol.css": "./dist/carol.css",
+    "./components.css": "./dist/components.css",
+    "./tokens.css": "./dist/tokens.css",
+    "./tailwind.css": "./dist/tailwind.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && tsup && node scripts/build-css.mjs",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "node --test \"test/**/*.test.mjs\""
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

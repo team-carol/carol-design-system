@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
-import { buttonClassName } from "@team-carol/styles";
-import type { ButtonSize, ButtonVariant } from "@team-carol/styles";
+import { buttonClassName } from "../../helpers";
+import type { ButtonSize, ButtonVariant } from "../../helpers";
 
 export type { ButtonSize, ButtonVariant };
 

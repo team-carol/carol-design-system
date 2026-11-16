@@ -17,10 +17,10 @@ import {
   TextInput,
   TopBar,
   TopBarLink,
-} from "@team-carol/react";
-import { accent, background, border, cssVarName, focus, radius, status, text, typeScale } from "@team-carol/tokens";
-import { clearColor, difficultyColor, gameAccent } from "@team-carol/tokens/game";
-import type { GameId } from "@team-carol/tokens/game";
+} from "@team-carol/design-system/react";
+import { accent, background, border, cssVarName, focus, radius, status, text, typeScale } from "@team-carol/design-system";
+import { clearColor, difficultyColor, gameAccent } from "@team-carol/design-system/game";
+import type { GameId } from "@team-carol/design-system/game";
 
 interface Page {
   title: string;
@@ -85,9 +85,9 @@ function Overview() {
       />
       <div className="docs-cards">
         {[
-          ["@team-carol/tokens", "색·타이포·간격 토큰. JS/TS, CSS 변수(--crl-*), Tailwind v4 테마로 나간다."],
-          ["@team-carol/styles", "프레임워크 없는 컴포넌트 CSS(crl-* 클래스). 서버에서 만든 HTML 에도 쓴다."],
-          ["@team-carol/react", "styles 클래스를 렌더하는 React 18/19 컴포넌트."],
+          ["@team-carol/design-system", "색·타이포·간격 토큰(JS 값)과 cx · buttonClassName. 서버에서도 쓴다."],
+          ["@team-carol/design-system/carol.css", "토큰 CSS 변수(--crl-*) + 컴포넌트 CSS(crl-* 클래스). 프레임워크 없이 쓴다."],
+          ["@team-carol/design-system/react", "crl-* 클래스를 렌더하는 React 18/19 컴포넌트."],
         ].map(([name, desc]) => (
           <Card key={name}>
             <CardTitle>
@@ -100,23 +100,24 @@ function Overview() {
 
       <h2>환경별로 쓰는 것</h2>
       <Table
-        head={["환경", "가져오는 것"]}
+        head={["환경", "가져오는 것 (@team-carol/design-system 기준)"]}
         rows={[
-          ["Tailwind v4", <><code>@team-carol/tokens/tailwind.css</code> (+ <code>@team-carol/styles/components.css</code>)</>],
-          ["일반 CSS", <><code>@team-carol/styles/carol.css</code> 또는 <code>@team-carol/tokens/tokens.css</code></>],
-          ["React", <><code>@team-carol/react</code> + <code>@team-carol/styles/carol.css</code></>],
-          ["서버에서 만드는 HTML", <><code>carolCss</code> 문자열 (<code>@team-carol/styles</code>) + <code>crl-*</code> 클래스</>],
-          ["Canvas · 이미지 렌더 · Discord", <><code>color</code>, <code>toInt()</code> (<code>@team-carol/tokens</code>)</>],
+          ["Tailwind v4", <><code>/tailwind.css</code> (+ <code>/components.css</code>)</>],
+          ["일반 CSS", <><code>/carol.css</code> 또는 변수만 <code>/tokens.css</code></>],
+          ["React", <><code>/react</code> + <code>/carol.css</code></>],
+          ["서버에서 만드는 HTML", <><code>carolCss</code> 문자열 (<code>/css</code>) + <code>crl-*</code> 클래스</>],
+          ["Canvas · 이미지 렌더 · Discord", <><code>color</code>, <code>toInt()</code> (패키지 루트)</>],
+          ["게임 색", <><code>/game</code></>],
         ]}
       />
 
       <h2>설치</h2>
       <p>
-        npmjs 에 공개로 배포된다. 토큰 설정 없이 필요한 패키지만 설치한다.
+        npmjs 에 공개로 배포된다. 패키지 하나에 토큰 · CSS · React 컴포넌트가 모두 들어 있고, 필요한 경로만 가져온다. React 는 쓸 때만 있으면 된다.
       </p>
       <Example
         block
-        code={`npm install @team-carol/tokens @team-carol/styles @team-carol/react`}
+        code={`npm install @team-carol/design-system`}
       >
         <p className="crl-caption">
           <a href="https://github.com/team-carol/carol-design-system#readme" target="_blank" rel="noopener">
@@ -129,7 +130,7 @@ function Overview() {
       <ul>
         <li>색은 직접 쓰지 않는다. 토큰(또는 --crl-* 변수, Tailwind 클래스)만 쓴다.</li>
         <li>여러 프로젝트가 함께 쓰는 것만 여기 둔다. 한 곳에서만 쓰는 UI 는 그 프로젝트에 둔다.</li>
-        <li>게임 고유 색(난이도·랭크)은 브랜드 색과 섞지 않고 <code>@team-carol/tokens/game</code> 에 둔다.</li>
+        <li>게임 고유 색(난이도·랭크)은 브랜드 색과 섞지 않고 <code>@team-carol/design-system/game</code> 에 둔다.</li>
       </ul>
     </>
   );
@@ -165,7 +166,7 @@ function ColorPage() {
         </section>
       ))}
       <h2>Discord 임베드</h2>
-      <Example code={`import { color, toInt } from "@team-carol/tokens";\n\nnew ContainerBuilder().setAccentColor(toInt(color.accent)); // 0xff9294`}>
+      <Example code={`import { color, toInt } from "@team-carol/design-system";\n\nnew ContainerBuilder().setAccentColor(toInt(color.accent)); // 0xff9294`}>
         <div className="docs-swatch" style={{ background: accent.accent }} />
         <code>toInt(color.accent) === 0xff9294</code>
       </Example>
@@ -194,7 +195,7 @@ function TypographyPage() {
       <h2>폰트 불러오기</h2>
       <Example
         block
-        code={`import { fontUrls } from "@team-carol/tokens";
+        code={`import { fontUrls } from "@team-carol/design-system";
 // <link rel="stylesheet" href={fontUrls.pretendard}>
 // <link rel="stylesheet" href={fontUrls.googleFonts}>`}
       >
@@ -240,7 +241,7 @@ function GamePage() {
         title="Game colors"
         lead="게임 고유 색. 난이도·랭크·클리어 마크는 플레이어가 이미 아는 색이라 브랜드 팔레트와 별개로 둔다."
       />
-      <Example block code={`import { difficultyColor, clearColor } from "@team-carol/tokens/game";\n\ndifficultyColor.maimai.MASTER; // "#9333ea"`}>
+      <Example block code={`import { difficultyColor, clearColor } from "@team-carol/design-system/game";\n\ndifficultyColor.maimai.MASTER; // "#9333ea"`}>
         {games.map((g) => (
           <section key={g} style={{ marginBottom: 24 }}>
             <p className="crl-eyebrow" style={{ color: gameAccent[g] }}>

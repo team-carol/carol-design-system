@@ -1,5 +1,5 @@
 import type { AnchorHTMLAttributes, HTMLAttributes, ReactNode } from "react";
-import { cx } from "../cx";
+import { cx } from "../../helpers";
 
 export interface TopBarProps extends HTMLAttributes<HTMLElement> {
   /** 왼쪽 브랜드 영역 (보통 <Brand />) */

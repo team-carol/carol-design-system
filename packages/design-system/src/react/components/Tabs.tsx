@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import type { KeyboardEvent, ReactNode } from "react";
-import { cx } from "../cx";
+import { cx } from "../../helpers";
 
 export interface TabItem<T extends string> {
   value: T;

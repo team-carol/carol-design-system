@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
-import { Brand, Footer, TopBar, TopBarLink } from "@team-carol/react";
+import { Brand, Footer, TopBar, TopBarLink } from "@team-carol/design-system/react";
 import { PAGES, NAV } from "./pages";
 
 const GITHUB = "https://github.com/team-carol/carol-design-system";

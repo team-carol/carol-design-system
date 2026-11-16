@@ -1,6 +1,6 @@
 ---
 name: carol-design-system
-description: team carol 디자인 시스템(@team-carol/tokens · styles · react) 사용 규칙. 이 디자인 시스템을 쓰는 프로젝트에서 색·글꼴·버튼·카드·탭·입력창·상단바 같은 UI 를 만들거나 고칠 때, 색 값(hex)을 쓰려 할 때, 새 프로젝트에 디자인 시스템을 붙일 때 먼저 읽는다.
+description: team carol 디자인 시스템(@team-carol/design-system) 사용 규칙. 이 디자인 시스템을 쓰는 프로젝트에서 색·글꼴·버튼·카드·탭·입력창·상단바 같은 UI 를 만들거나 고칠 때, 색 값(hex)을 쓰려 할 때, 새 프로젝트에 디자인 시스템을 붙일 때 먼저 읽는다.
 ---
 
 # Carol Design System
@@ -11,11 +11,11 @@ team carol 의 색, 타이포그래피, 컴포넌트를 담은 디자인 시스�
 ## 반드시 지킬 것
 
 1. **색을 직접 쓰지 않는다.** `#ff9294`, `#33333a` 같은 hex 를 새로 쓰지 말고 토큰을 쓴다.
-   - JS/TS: `import { color } from "@team-carol/tokens"` → `color.accent`
+   - JS/TS: `import { color } from "@team-carol/design-system"` → `color.accent`
    - CSS: `var(--crl-accent)`
    - Tailwind: `bg-accent`, `text-ink-soft`, `border-border`
    - 숫자 색(Discord 임베드 등): `toInt(color.accent)` → `0xff9294`
-2. **게임 고유 색**(난이도·랭크·FC/AP·칭호·서클)은 `@team-carol/tokens/game` 에서 가져온다. 브랜드 색과 섞지 않는다.
+2. **게임 고유 색**(난이도·랭크·FC/AP·칭호·서클)은 `@team-carol/design-system/game` 에서 가져온다. 브랜드 색과 섞지 않는다.
 3. **이미 있는 컴포넌트를 먼저 쓴다.** 아래 목록에 있으면 새로 만들지 않는다.
 4. 디자인 시스템에 없는 UI 가 필요하면 우선 지금 프로젝트 안에 만든다. **다른 프로젝트도 쓰게 되면** carol-design-system 에 올리자고 제안한다.
 5. 토큰 값이 맞지 않아 보이면 프로젝트에서 덮어쓰지 말고 carol-design-system 저장소에서 고친다.
@@ -52,9 +52,9 @@ team carol 의 색, 타이포그래피, 컴포넌트를 담은 디자인 시스�
 
 ## 컴포넌트
 
-| 컴포넌트 | React (`@team-carol/react`) | HTML 클래스 (`@team-carol/styles`) |
+| 컴포넌트 | React (`@team-carol/design-system/react`) | HTML 클래스 (CSS 를 불러오면 쓸 수 있다) |
 |---|---|---|
-| 버튼 | `<Button variant="primary\|secondary" size="sm\|md\|lg" href?>` · `buttonClassName()` (`@team-carol/styles`) | `crl-btn crl-btn--primary` / `--secondary` / `--sm` / `--lg` |
+| 버튼 | `<Button variant="primary\|secondary" size="sm\|md\|lg" href?>` · `buttonClassName()` (패키지 루트) | `crl-btn crl-btn--primary` / `--secondary` / `--sm` / `--lg` |
 | 카드 | `<Card>` `<CardTitle>` `<CardBody>` | `crl-card` `crl-card__title` `crl-card__body` |
 | 배지 | `<Tag tone="neutral\|accent\|success\|danger">` | `crl-tag crl-tag--success` |
 | 칩 | `<Chip>` | `crl-chip` |
@@ -71,16 +71,16 @@ team carol 의 색, 타이포그래피, 컴포넌트를 담은 디자인 시스�
 - **Tailwind v4** — CSS 진입 파일에 순서대로:
   ```css
   @import "tailwindcss";
-  @import "@team-carol/tokens/tailwind.css";
-  @import "@team-carol/styles/components.css" layer(components); /* crl-* 클래스도 쓸 때. 반드시 tailwindcss 뒤 */
+  @import "@team-carol/design-system/tailwind.css";
+  @import "@team-carol/design-system/components.css" layer(components); /* crl-* 클래스도 쓸 때. 반드시 tailwindcss 뒤 */
   ```
   클래스는 `bg-surface rounded-card px-gutter` 처럼 쓴다.
-- **일반 CSS** — `@import "@team-carol/styles/carol.css";` (토큰+리셋+컴포넌트) 또는 변수만 `@team-carol/tokens/tokens.css`. 값은 `var(--crl-*)`.
-- **React** — 진입 파일에서 `import "@team-carol/styles/carol.css"` 한 번, 컴포넌트는 `@team-carol/react`. Next.js 서버 컴포넌트에서 `buttonClassName()` 을 호출할 때는 `"use client"` 가 없는 `@team-carol/styles` 에서 import 한다.
-- **서버에서 만드는 HTML** — `import { carolCss } from "@team-carol/styles"` 를 `<style>` 에 넣고 마크업에 `crl-*` 클래스를 쓴다.
+- **일반 CSS** — `@import "@team-carol/design-system/carol.css";` (토큰+리셋+컴포넌트) 또는 변수만 `@team-carol/design-system/tokens.css`. 값은 `var(--crl-*)`.
+- **React** — 진입 파일에서 `import "@team-carol/design-system/carol.css"` 한 번, 컴포넌트는 `@team-carol/design-system/react`. Next.js 서버 컴포넌트에서 `buttonClassName()` 을 호출할 때는 `"use client"` 가 없는 패키지 루트(`@team-carol/design-system`)에서 import 한다.
+- **서버에서 만드는 HTML** — `import { carolCss } from "@team-carol/design-system/css"` 를 `<style>` 에 넣고 마크업에 `crl-*` 클래스를 쓴다.
 - **Canvas · 이미지 렌더(satori 등) · Discord** — CSS 변수를 못 쓰므로 `color.surface` 같은 JS 값을 쓴다. 반투명은 `withAlpha(color.canvas, 0.9)`, 숫자 색은 `toInt(...)`.
 
 ## 새 프로젝트에 붙일 때
 
-1. 필요한 것만 설치한다 (npmjs 공개 패키지라 토큰·`.npmrc` 불필요): 토큰만 `@team-carol/tokens`, CSS 컴포넌트까지 `@team-carol/styles`, React 면 `@team-carol/react`
+1. `npm install @team-carol/design-system` (npmjs 공개 패키지라 토큰·`.npmrc` 불필요). 토큰·CSS·React 가 한 패키지에 있고, React 는 `/react` 를 쓸 때만 필요하다.
 2. 위 "환경별 사용법" 대로 CSS 를 연결하고, `body` 바탕·글자색은 토큰으로 둔다.

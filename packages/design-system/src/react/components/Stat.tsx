@@ -1,5 +1,5 @@
 import type { HTMLAttributes, ReactNode } from "react";
-import { cx } from "../cx";
+import { cx } from "../../helpers";
 
 export interface StatProps extends HTMLAttributes<HTMLDivElement> {
   label: ReactNode;

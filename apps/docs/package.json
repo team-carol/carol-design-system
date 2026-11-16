@@ -9,9 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@team-carol/react": "0.1.0",
-    "@team-carol/styles": "0.1.0",
-    "@team-carol/tokens": "0.1.0",
+    "@team-carol/design-system": "0.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
