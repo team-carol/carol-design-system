@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/team-carol/carol-design-system.git",
+    "url": "git+https://github.com/team-carol/carol-design-system.git",
     "directory": "packages/tokens"
   },
   "sideEffects": [
