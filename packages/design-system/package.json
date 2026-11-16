@@ -1,6 +1,6 @@
 {
   "name": "@team-carol/design-system",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "team carol 디자인 시스템 — 토큰(JS · CSS 변수 · Tailwind v4), 컴포넌트 CSS, React 컴포넌트.",
   "license": "MIT",
   "repository": {
