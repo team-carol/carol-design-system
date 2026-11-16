@@ -45,40 +45,13 @@ carol-design-system/
 
 ## 설치
 
-패키지는 **GitHub Packages** (`npm.pkg.github.com`) 에 배포됩니다. GitHub Packages 는 공개 패키지라도 설치할 때 토큰이 필요합니다.
-
-**1. 토큰 (사람마다 한 번)** — GitHub → Settings → Developer settings → Personal access tokens (classic) 에서 `read:packages` 권한으로 발급해 홈 디렉터리의 `~/.npmrc` 에 넣습니다. 커밋하지 않습니다.
-
-```ini
-# ~/.npmrc
-//npm.pkg.github.com/:_authToken=ghp_xxxxxxxxxxxx
-```
-
-**2. 프로젝트 `.npmrc` (프로젝트마다 한 번, 커밋)**
-
-```ini
-@team-carol:registry=https://npm.pkg.github.com
-```
-
-**3. 설치** — 필요한 것만 받습니다.
+패키지는 [npmjs](https://www.npmjs.com/org/team-carol) 에 공개로 배포됩니다. 토큰이나 `.npmrc` 없이 필요한 것만 설치합니다. CI · Docker · 배포 서비스에서도 따로 설정할 것이 없습니다.
 
 ```bash
 npm install @team-carol/tokens                      # 토큰만
 npm install @team-carol/tokens @team-carol/styles   # + 컴포넌트 CSS
 npm install @team-carol/react @team-carol/styles    # + React 컴포넌트
 ```
-
-### CI · Docker
-
-- **GitHub Actions** — `actions/setup-node` 에 `registry-url: https://npm.pkg.github.com`, `scope: "@team-carol"` 를 주고 `npm ci` 에 `NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}` 를 넘깁니다. 다른 저장소에서 읽으려면 패키지 설정의 *Manage Actions access* 에 그 저장소를 추가합니다.
-- **Docker** — 토큰은 빌드 시크릿으로 넘겨 이미지에 남기지 않습니다.
-
-  ```dockerfile
-  RUN --mount=type=secret,id=npmrc,target=/root/.npmrc npm ci
-  ```
-  ```bash
-  docker build --secret id=npmrc,src=$HOME/.npmrc .
-  ```
 
 ### 배포 전에 로컬에서 써 보기
 
@@ -303,10 +276,12 @@ npm run docs        # 빌드 후 문서 사이트 (http://localhost:5173)
 ## 릴리스
 
 1. 세 패키지의 `version` 과 서로 의존하는 버전을 함께 올립니다. 스킬을 바꿨다면 `plugins/carol-design-system/.claude-plugin/plugin.json` 의 `version` 도 올립니다.
-2. 태그를 푸시하면 `.github/workflows/release.yml` 이 빌드·테스트 후 GitHub Packages 에 배포합니다.
+2. 태그를 푸시하면 `.github/workflows/release.yml` 이 빌드·테스트 후 npmjs 에 배포합니다 (provenance 포함).
 
    ```bash
    git tag v0.2.0 && git push origin v0.2.0
    ```
+
+배포에는 저장소 시크릿 `NPM_TOKEN` 이 필요합니다. npmjs → Access Tokens → Granular access token 에서 `@team-carol` 조직 패키지에 Read and write 권한으로 발급합니다.
 
 문서 사이트는 `main` 에 푸시할 때마다 `.github/workflows/docs.yml` 이 GitHub Pages 에 올립니다.

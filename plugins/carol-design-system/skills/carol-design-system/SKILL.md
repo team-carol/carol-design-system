@@ -82,6 +82,5 @@ team carol 의 색, 타이포그래피, 컴포넌트를 담은 디자인 시스�
 
 ## 새 프로젝트에 붙일 때
 
-1. 프로젝트 루트 `.npmrc`: `@team-carol:registry=https://npm.pkg.github.com` (설치에는 `read:packages` 토큰이 필요하다 — README 참고)
-2. 필요한 것만 설치: 토큰만 `@team-carol/tokens`, CSS 컴포넌트까지 `@team-carol/styles`, React 면 `@team-carol/react`
-3. 위 "환경별 사용법" 대로 CSS 를 연결하고, `body` 바탕·글자색은 토큰으로 둔다.
+1. 필요한 것만 설치한다 (npmjs 공개 패키지라 토큰·`.npmrc` 불필요): 토큰만 `@team-carol/tokens`, CSS 컴포넌트까지 `@team-carol/styles`, React 면 `@team-carol/react`
+2. 위 "환경별 사용법" 대로 CSS 를 연결하고, `body` 바탕·글자색은 토큰으로 둔다.

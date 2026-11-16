@@ -112,14 +112,11 @@ function Overview() {
 
       <h2>설치</h2>
       <p>
-        GitHub Packages 에 배포된다. 프로젝트 루트에 <code>.npmrc</code> 를 두고 필요한 패키지만 설치한다. 토큰 설정과 환경별 예시는 저장소 README 에 있다.
+        npmjs 에 공개로 배포된다. 토큰 설정 없이 필요한 패키지만 설치한다.
       </p>
       <Example
         block
-        code={`# .npmrc
-@team-carol:registry=https://npm.pkg.github.com
-
-npm install @team-carol/tokens @team-carol/styles @team-carol/react`}
+        code={`npm install @team-carol/tokens @team-carol/styles @team-carol/react`}
       >
         <p className="crl-caption">
           <a href="https://github.com/team-carol/carol-design-system#readme" target="_blank" rel="noopener">

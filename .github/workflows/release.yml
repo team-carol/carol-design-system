@@ -1,15 +1,17 @@
-# v* 태그를 푸시하면 세 패키지를 배포한다.
+# v* 태그를 푸시하면 세 패키지를 npmjs 에 배포한다.
 #   1) packages/*/package.json 의 version 을 같이 올린다 (서로 의존하는 버전도)
 #   2) git tag v0.2.0 && git push origin v0.2.0
+# 저장소 시크릿 NPM_TOKEN (npmjs Granular access token, @team-carol 쓰기 권한) 이 필요하다.
 name: Release
 
 on:
   push:
     tags: ["v*"]
+  workflow_dispatch:
 
 permissions:
   contents: read
-  packages: write
+  id-token: write # npm provenance
 
 jobs:
   publish:
@@ -20,11 +22,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          registry-url: https://npm.pkg.github.com
-          scope: "@team-carol"
+          registry-url: https://registry.npmjs.org
       - run: npm ci
       - run: npm run build
       - run: npm test
       - run: npm publish -w @team-carol/tokens -w @team-carol/styles -w @team-carol/react
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

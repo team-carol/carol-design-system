@@ -39,6 +39,7 @@
     "@team-carol/tokens": "0.1.0"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "access": "public",
+    "provenance": true
   }
 }
