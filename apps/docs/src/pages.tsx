@@ -485,7 +485,7 @@ function ShellPage() {
       <Header title="TopBar & Footer" lead="모든 페이지가 같은 상단바와 푸터를 쓴다. 브랜드 이미지는 쓰는 쪽의 경로를 markSrc 로 넘긴다." />
       <Example
         block
-        code={`<TopBar brand={<Brand name="캐롤봇" markSrc="/carolbot-avatar.png" href="/" />}>
+        code={`<TopBar brand={<Brand name="캐롤봇" markSrc="/apple-touch-icon.png" href="/" />}>
   <TopBarLink href="/commands" active>명령어</TopBarLink>
   <Button size="sm">디스코드에 추가</Button>
 </TopBar>
@@ -499,7 +499,7 @@ function ShellPage() {
 </Footer>`}
       >
         <div style={{ border: "1px solid var(--crl-border)", borderRadius: 12, overflow: "hidden" }}>
-          <TopBar brand={<Brand name="캐롤봇" href="#shell" />} style={{ position: "static" }}>
+          <TopBar brand={<Brand name="캐롤봇" markSrc="/apple-touch-icon.png" href="#shell" />} style={{ position: "static" }}>
             <TopBarLink href="#shell" active>
               명령어
             </TopBarLink>

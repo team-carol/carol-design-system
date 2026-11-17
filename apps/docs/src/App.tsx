@@ -29,7 +29,7 @@ export function App() {
 
   return (
     <>
-      <TopBar brand={<Brand name="Carol Design System" href="#overview" />}>
+      <TopBar brand={<Brand name="Carol Design System" markSrc="/apple-touch-icon.png" href="#overview" />}>
         <TopBarLink href={GITHUB} target="_blank" rel="noopener">
           GitHub
         </TopBarLink>
