@@ -8,7 +8,7 @@
     "url": "git+https://github.com/team-carol/carol-design-system.git",
     "directory": "packages/design-system"
   },
-  "homepage": "https://team-carol.github.io/carol-design-system/",
+  "homepage": "https://design-system.team-carol.com/",
   "type": "module",
   "sideEffects": [
     "*.css"

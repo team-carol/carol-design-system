@@ -6,7 +6,7 @@ description: team carol 디자인 시스템(@team-carol/design-system) 사용 �
 # Carol Design System
 
 team carol 의 색, 타이포그래피, 컴포넌트를 담은 디자인 시스템이다. 어두운 캔버스 위에 코랄 강조색 하나를 쓴다.
-저장소: https://github.com/team-carol/carol-design-system · 문서: https://team-carol.github.io/carol-design-system/
+저장소: https://github.com/team-carol/carol-design-system · 문서: https://design-system.team-carol.com/
 
 ## 반드시 지킬 것
 

@@ -2,7 +2,7 @@
 
 team carol 의 색, 타이포그래피, 컴포넌트를 담은 디자인 시스템입니다.
 
-- 문서 사이트: <https://team-carol.github.io/carol-design-system/>
+- 문서 사이트: <https://design-system.team-carol.com/>
 - 패키지: [`@team-carol/design-system`](https://www.npmjs.com/package/@team-carol/design-system)
 
 ## 목차
@@ -170,7 +170,7 @@ embed.setAccentColor(toInt(difficultyColor.maimai.MASTER));    // 0x9333ea
 
 ## 컴포넌트
 
-예시와 코드는 [문서 사이트](https://team-carol.github.io/carol-design-system/)에 있습니다.
+예시와 코드는 [문서 사이트](https://design-system.team-carol.com/)에 있습니다.
 
 | 컴포넌트 | React (`/react`) | HTML 클래스 |
 |---|---|---|
@@ -281,4 +281,4 @@ npm install ../carol-packs/team-carol-design-system-0.1.0.tgz
 | Repository | `carol-design-system` |
 | Workflow filename | `release.yml` |
 
-문서 사이트는 `main` 에 푸시할 때마다 `.github/workflows/docs.yml` 이 GitHub Pages 에 올립니다.
+문서 사이트(`apps/docs`)는 Cloudflare Pages 가 저장소와 연결돼 `main` 에 푸시할 때마다 배포합니다 (빌드 `npm run docs:build`, 출력 `apps/docs/dist`). PR 마다 미리보기 주소도 생깁니다.
